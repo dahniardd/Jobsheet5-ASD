@@ -7,33 +7,25 @@ public class Pangkat06 {
             this.nilai = nilai;
             this.pangkat = pangkat;
         }
-        public int pangkatBF() {
+    
+        public int pangkatBF(int basis, int eksponen) {
             int hasil = 1;
-            for (int i = 0; i < pangkat; i++) {
-                hasil *= nilai;
+            for (int i = 0; i < eksponen; i++) {
+                hasil = hasil * basis;
             }
             return hasil;
         }
-        public int pangkatDC() {
-            if (pangkat == 0) {
+    
+        public int pangkatDC(int basis, int eksponen) {
+            if (eksponen == 0) {
                 return 1;
-            } else if (pangkat % 2 == 1) {
-                return nilai * pangkatDC() * pangkatDC();
             } else {
-                return pangkatDC() * pangkatDC();
+                if (eksponen % 2 == 1) { // eksponen ganjil
+                    return (pangkatDC(basis, eksponen / 2) * pangkatDC(basis, eksponen / 2) * basis);
+                } else { // eksponen genap
+                    return (pangkatDC(basis, eksponen / 2) * pangkatDC(basis, eksponen / 2));
+                }
             }
-        }
-            public static void main(String[] args) {
-            int a = 2;
-            int n = 5;
-    
-            Pangkat06 pangkatObjek = new Pangkat06(a, n);
-    
-            int hasilBF = pangkatObjek.pangkatBF();
-            int hasilDC = pangkatObjek.pangkatDC();
-    
-            System.out.println("Pangkat " + a + " ^ " + n + " (BF): " + hasilBF);
-            System.out.println("Pangkat " + a + " ^ " + n + " (DC): " + hasilDC);
         }
     }
 
