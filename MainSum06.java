@@ -8,15 +8,15 @@ public class MainSum06 {
         int elm = sc.nextInt();
     
         Sum06 sm = new Sum06(elm);
-        System.out.println("=========================================");
+        System.out.println("=========================");
         for(int i = 0; i < sm.elemen; i++){
             System.out.print("Masukkan untung bulan ke -" + (i+1)+" = ");
             sm.keuntungan[i] = sc.nextDouble();
         }
-        System.out.println("=========================================");
+        System.out.println("==========================");
         System.out.println("Algoritma Brute Force");
         System.out.println("Total keuntungan perusahaan selama " + sm.elemen + "bulan adalah = "+ sm.totalBF(sm.keuntungan));
-        System.out.println("=========================================");
+        System.out.println("=============================");
         System.out.println("Algoritma Divide Conquer");
         System.out.println("Total keuntungan perusahaan selama " + sm.elemen + "bulan adalah = "+ sm.totalDC(sm.keuntungan, 0,sm.elemen-1));
     }
